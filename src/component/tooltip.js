@@ -21,9 +21,9 @@ export default function tooltip(html, target) {
     if (document.body.contains(el.el)) {
       console.log("🚀 ~ bind ~ el:", el);
 
-      // document.body.removeChild(el.el);
+      document.body.removeChild(el.el);
 
-      el.el.remove();
+      // el.el.remove();
     }
   });
 
