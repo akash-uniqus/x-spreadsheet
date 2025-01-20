@@ -11,15 +11,19 @@ export default function tooltip(html, target) {
   const el = h("div", `${cssPrefix}-tooltip`).html(html).show();
   document.body.appendChild(el.el);
   const elBox = el.box();
-  // console.log('elBox:', elBox);
+  console.log("elBox:", el);
   el.css("left", `${left + width / 2 - elBox.width / 2}px`).css(
     "top",
-    `${top + height + 2}px`,
+    `${top + height + 2}px`
   );
 
   bind(target, "mouseleave", () => {
     if (document.body.contains(el.el)) {
-      document.body.removeChild(el.el);
+      console.log("🚀 ~ bind ~ el:", el);
+
+      // document.body.removeChild(el.el);
+
+      el.el.remove();
     }
   });
 
