@@ -26,8 +26,9 @@ export default class Item {
     const { tip } = this;
     return h("div", `${cssPrefix}-toolbar-btn`)
       .on("mouseenter", (evt) => {
-        evt.preventDefault();
-        if (this.tip) tooltip(this.tip, evt.target);
+        const { target, relatedTarget } = evt;
+        if (this.tip && relatedTarget.contains(target))
+          tooltip(this.tip, evt.target);
       })
       .attr("data-tooltip", tip);
   }
